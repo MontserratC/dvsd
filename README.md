@@ -20,13 +20,13 @@ abundancia <- matrix(sample(0:20, 30, replace = TRUE), nrow = 5, ncol = 6)
 rownames(abundancia) <- paste("Sitio", 1:5)
 colnames(abundancia) <- paste("Especie", 1:6)
 ```
-# 3.1. Riqueza
+#  Riqueza
 ```{r , include=TRUE, warning=FALSE}
 riqueza <- rowSums(abundancia > 0)
 print("Riqueza de especies por sitio:")
 print(riqueza)
 ```
-# 3.2. Abundancia
+# Abundancia
 ## Abundancia Absoluta
 ```{r , include=TRUE, warning=FALSE}
 abundancia_absoluta <- rowSums(abundancia)
@@ -39,7 +39,7 @@ abundancia_relativa <- prop.table(abundancia, 1) # Por filas
 print("Abundancia relativa por sitio:")
 print(abundancia_relativa)
 ```
-# 3.4. Equitatividad
+# Equitatividad
 ## Índice de Shannon
 ```{r , include=TRUE, warning=FALSE}
 equitatividad_shannon <- diversity(abundancia)
@@ -174,7 +174,7 @@ ggplot(abundancia_grafico, aes(x = Sitio, y = Abundancia)) +
   labs(title = "Abundancia por sitio", y = "Abundancia", x = "Sitios") +
   theme_minimal()
 ```
-# 5. Análisis de la Diversidad Beta con vegan
+#  Análisis de la Diversidad Beta con vegan
 ```{r , include=TRUE, warning=FALSE, echo=TRUE}
 beta_diversidad <- vegdist(abundancia)
 ```
