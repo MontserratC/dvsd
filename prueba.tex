@@ -1,0 +1,708 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Análisis de Diversidad de Especies por Montserrat Cervantes Espinoza},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Análisis de Diversidad de Especies por Montserrat Cervantes
+Espinoza}
+\author{}
+\date{\vspace{-2.5em}2024-09-22}
+
+\begin{document}
+\maketitle
+
+\hypertarget{instalar-y-cargar-los-paquetes-necesarios}{%
+\section{Instalar y cargar los paquetes
+necesarios}\label{instalar-y-cargar-los-paquetes-necesarios}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(vegan)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: permute
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: lattice
+\end{verbatim}
+
+\begin{verbatim}
+## This is vegan 2.6-4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(betapart)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{establecer-una-semilla-para-reproducibilidad}{%
+\subsection{Establecer una semilla para
+reproducibilidad}\label{establecer-una-semilla-para-reproducibilidad}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{crear-una-matrix-con-la-siguiente-estructura}{%
+\section{Crear una matrix con la siguiente
+estructura}\label{crear-una-matrix-con-la-siguiente-estructura}}
+
+\hypertarget{sitio-filas}{%
+\subsubsection{sitio = filas}\label{sitio-filas}}
+
+\hypertarget{especies-columnas}{%
+\subsubsection{especies = columnas}\label{especies-columnas}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{abundancia }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{,}
+                       \DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{), }
+                     \AttributeTok{nrow =} \DecValTok{5}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Sitio"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Especie"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{riqueza}{%
+\section{Riqueza}\label{riqueza}}
+
+\hypertarget{simplemente-la-suma-de-filas-numero-de-especies}{%
+\subsection{simplemente la suma de filas (numero de
+especies)}\label{simplemente-la-suma-de-filas-numero-de-especies}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{riqueza }\OtherTok{\textless{}{-}} \FunctionTok{rowSums}\NormalTok{(abundancia }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Riqueza de especies por sitio:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Riqueza de especies por sitio:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(riqueza)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Sitio 1 Sitio 2 Sitio 3 Sitio 4 Sitio 5 
+##       2       2       1       3       2
+\end{verbatim}
+
+\hypertarget{abundancia}{%
+\section{Abundancia}\label{abundancia}}
+
+\hypertarget{abundancia-absoluta-suma-de-abundancias}{%
+\subsection{Abundancia Absoluta (suma de
+abundancias)}\label{abundancia-absoluta-suma-de-abundancias}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{abundancia\_absoluta }\OtherTok{\textless{}{-}} \FunctionTok{rowSums}\NormalTok{(abundancia)}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Abundancia absoluta por sitio:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Abundancia absoluta por sitio:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(abundancia\_absoluta)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Sitio 1 Sitio 2 Sitio 3 Sitio 4 Sitio 5 
+##       4       3       5       9       2
+\end{verbatim}
+
+\hypertarget{abundancia-relativa-suma-abundancias-entre-uno}{%
+\subsection{Abundancia Relativa (suma abundancias entre
+uno)}\label{abundancia-relativa-suma-abundancias-entre-uno}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{abundancia\_relativa }\OtherTok{\textless{}{-}} \FunctionTok{prop.table}\NormalTok{(abundancia, }\DecValTok{1}\NormalTok{) }\CommentTok{\# Por filas}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Abundancia relativa por sitio"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Abundancia relativa por sitio"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(abundancia\_relativa)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Especie 1 Especie 2 Especie 3 Especie 4 Especie 5 Especie 6
+## Sitio 1         0      0.25 0.0000000 0.7500000 0.0000000 0.0000000
+## Sitio 2         0      0.00 0.0000000 0.0000000 0.3333333 0.6666667
+## Sitio 3         1      0.00 0.0000000 0.0000000 0.0000000 0.0000000
+## Sitio 4         0      0.00 0.2222222 0.3333333 0.0000000 0.4444444
+## Sitio 5         0      0.50 0.5000000 0.0000000 0.0000000 0.0000000
+\end{verbatim}
+
+\hypertarget{equitatividad}{%
+\section{Equitatividad}\label{equitatividad}}
+
+\hypertarget{uxedndice-de-shannon}{%
+\subsection{Índice de Shannon}\label{uxedndice-de-shannon}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{equitatividad\_shannon }\OtherTok{\textless{}{-}} \FunctionTok{diversity}\NormalTok{(abundancia)}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Índice de equitatividad de Shannon:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Índice de equitatividad de Shannon:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(equitatividad\_shannon)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Sitio 1   Sitio 2   Sitio 3   Sitio 4   Sitio 5 
+## 0.5623351 0.6365142 0.0000000 1.0608569 0.6931472
+\end{verbatim}
+
+\hypertarget{nuxfameros-de-hill}{%
+\subsection{Números de Hill}\label{nuxfameros-de-hill}}
+
+\hypertarget{recordar}{%
+\subsection{recordar}\label{recordar}}
+
+\textbf{q=0} Equivale a la riqueza de especies (S), es decir, al número
+total de especies presentes.
+
+\textbf{q=1} Equivale al exponencial del índice de Shannon (exp(H')),
+que considera tanto la riqueza como la equitatividad.
+
+\textbf{q=2} Equivale al inverso del índice de Simpson (1/D), que
+pondera más las especies dominantes.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{hill\_numbers }\OtherTok{\textless{}{-}} \FunctionTok{renyi}\NormalTok{(abundancia, }\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\FunctionTok{print}\NormalTok{(}\StringTok{"Números de Hill (q=0,1,2):"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Números de Hill (q=0,1,2):"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(hill\_numbers)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                 0         1         2
+## Sitio 1 0.6931472 0.5623351 0.4700036
+## Sitio 2 0.6931472 0.6365142 0.5877867
+## Sitio 3 0.0000000 0.0000000 0.0000000
+## Sitio 4 1.0986123 1.0608569 1.0271533
+## Sitio 5 0.6931472 0.6931472 0.6931472
+\end{verbatim}
+
+\hypertarget{curvas-de-acumulaciuxf3n}{%
+\section{Curvas de acumulación}\label{curvas-de-acumulaciuxf3n}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#matrix de abundancia}
+\NormalTok{abundancia }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{,}
+                       \DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{), }
+                     \AttributeTok{nrow =} \DecValTok{5}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Sitio"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Especie"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{anuxe1lisis-de-rarefacciuxf3n}{%
+\subsection{Análisis de
+Rarefacción}\label{anuxe1lisis-de-rarefacciuxf3n}}
+
+\hypertarget{se-enfoca-en-comparar-la-diversidad-en-diferentes-tamauxf1os-de-muestra.}{%
+\subsubsection{se enfoca en comparar la diversidad en diferentes tamaños
+de
+muestra.}\label{se-enfoca-en-comparar-la-diversidad-en-diferentes-tamauxf1os-de-muestra.}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{abn3 }\OtherTok{\textless{}{-}}\NormalTok{ abundancia}
+\NormalTok{s }\OtherTok{\textless{}{-}} \FunctionTok{specnumber}\NormalTok{(abn3)  }\CommentTok{\# Riqueza observada por sitio}
+\NormalTok{raremax }\OtherTok{\textless{}{-}} \FunctionTok{min}\NormalTok{(}\FunctionTok{rowSums}\NormalTok{(abn3))  }\CommentTok{\# Máximo número de individuos para rarefacción}
+\NormalTok{srare }\OtherTok{\textless{}{-}} \FunctionTok{rarefy}\NormalTok{(abn3, raremax, }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{)  }\CommentTok{\# Rarefacción}
+\NormalTok{dr }\OtherTok{\textless{}{-}} \FunctionTok{drarefy}\NormalTok{(abn3, raremax)  }\CommentTok{\# Rarefacción con desviaciones estándar}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{preparar-los-datos-para-la-gruxe1fica}{%
+\subsubsection{Preparar los datos para la
+gráfica}\label{preparar-los-datos-para-la-gruxe1fica}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rare\_df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Observado =}\NormalTok{ s,}
+  \AttributeTok{Rarefaccionado =}\NormalTok{ srare}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{gruxe1fica-de-rarefacciuxf3n}{%
+\subsection{Gráfica de Rarefacción}\label{gruxe1fica-de-rarefacciuxf3n}}
+
+\hypertarget{gruxe1fica-de-la-curva-de-rarefacciuxf3n}{%
+\subsection{Gráfica de la curva de
+rarefacción}\label{gruxe1fica-de-la-curva-de-rarefacciuxf3n}}
+
+\includegraphics{prueba_files/figure-latex/unnamed-chunk-11-1.pdf} \#
+\textbf{Analisis de diversidad Beta} \#\# matrix de abundancia
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{abundancia }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{,}
+                       \DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{), }
+                     \AttributeTok{nrow =} \DecValTok{5}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Sitio"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Especie"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{imprimir-la-matriz-de-abundancia}{%
+\subsubsection{Imprimir la matriz de
+abundancia}\label{imprimir-la-matriz-de-abundancia}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\StringTok{"Matriz de Abundancia:"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Matriz de Abundancia:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(abundancia)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Especie 1 Especie 2 Especie 3 Especie 4 Especie 5 Especie 6
+## Sitio 1         0         1         0         3         0         0
+## Sitio 2         0         0         0         0         1         2
+## Sitio 3         5         0         0         0         0         0
+## Sitio 4         0         0         2         3         0         4
+## Sitio 5         0         1         1         0         0         0
+\end{verbatim}
+
+\hypertarget{crear-una-matriz-de-presencia-ausencia}{%
+\section{Crear una matriz de
+presencia-ausencia}\label{crear-una-matriz-de-presencia-ausencia}}
+
+\hypertarget{importante-considerar-con-que-datos-se-esta-haciendo-la-diversidad-beta-preferentemente-usar-datos-de-presencia-ausencia.}{%
+\subsubsection{Importante considerar con que datos se esta haciendo la
+diversidad beta preferentemente usar datos de presencia
+ausencia.}\label{importante-considerar-con-que-datos-se-esta-haciendo-la-diversidad-beta-preferentemente-usar-datos-de-presencia-ausencia.}}
+
+\hypertarget{convertir-la-matriz-de-presencia-ausencia-en-un-objeto-de-betapart-paquete}{%
+\subsubsection{Convertir la matriz de presencia-ausencia en un objeto de
+betapart
+(paquete)}\label{convertir-la-matriz-de-presencia-ausencia-en-un-objeto-de-betapart-paquete}}
+
+\hypertarget{diferencia-de-riqueza-de-especies-anidamiento-ux3b2sne.}{%
+\subsubsection{\texorpdfstring{Diferencia de riqueza de especies
+(anidamiento)
+\textbf{(βSNE)}.}{Diferencia de riqueza de especies (anidamiento) (βSNE).}}\label{diferencia-de-riqueza-de-especies-anidamiento-ux3b2sne.}}
+
+\hypertarget{recambio-o-reemplazo-de-la-disimilitud-ux3b2sim}{%
+\subsubsection{\texorpdfstring{Recambio o reemplazo de la disimilitud
+\textbf{(βSIM)}}{Recambio o reemplazo de la disimilitud (βSIM)}}\label{recambio-o-reemplazo-de-la-disimilitud-ux3b2sim}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Gráficas de densidad}
+\FunctionTok{x11}\NormalTok{()}
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\AttributeTok{xpd =} \ConstantTok{NA}\NormalTok{, }\AttributeTok{cex =} \FloatTok{0.5}\NormalTok{)}
+
+\CommentTok{\# Gráfica de la densidad de diversidad beta}
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(dist.s}\SpecialCharTok{$}\NormalTok{beta.SOR), }\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{), }\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{35}\NormalTok{), }
+     \AttributeTok{xlab =} \StringTok{"Diversidad Beta"}\NormalTok{, }\AttributeTok{main =} \StringTok{""}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{3}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(dist.s}\SpecialCharTok{$}\NormalTok{beta.SNE), }\AttributeTok{lty =} \DecValTok{1}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{col =} \StringTok{"red"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(dist.s}\SpecialCharTok{$}\NormalTok{beta.SIM), }\AttributeTok{lty =} \DecValTok{2}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{, }\AttributeTok{col =} \StringTok{"grey60"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prueba_files/figure-latex/unnamed-chunk-16-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Gráfica alternativa}
+\FunctionTok{plot}\NormalTok{(}\FunctionTok{density}\NormalTok{(dist.s}\SpecialCharTok{$}\NormalTok{beta.SOR), }\AttributeTok{xlim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.8}\NormalTok{), }\AttributeTok{ylim =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{19}\NormalTok{), }
+     \AttributeTok{xlab =} \StringTok{"Diversidad Beta"}\NormalTok{, }\AttributeTok{main =} \StringTok{""}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{3}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(dist.s}\SpecialCharTok{$}\NormalTok{beta.SNE), }\AttributeTok{lty =} \DecValTok{1}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\FunctionTok{density}\NormalTok{(dist.s}\SpecialCharTok{$}\NormalTok{beta.SIM), }\AttributeTok{lty =} \DecValTok{2}\NormalTok{, }\AttributeTok{lwd =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prueba_files/figure-latex/unnamed-chunk-16-2.pdf}
+
+\hypertarget{abundancia-por-sitio-comparacion-simple-analisis-exploratorio}{%
+\section{Abundancia por sitio comparacion simple analisis
+exploratorio}\label{abundancia-por-sitio-comparacion-simple-analisis-exploratorio}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{abundancia }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{,}
+                       \DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{), }
+                     \AttributeTok{nrow =} \DecValTok{5}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Sitio"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Especie"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{)}
+
+\CommentTok{\# Calcular la abundancia total por sitio}
+\NormalTok{abundancia\_total }\OtherTok{\textless{}{-}} \FunctionTok{rowSums}\NormalTok{(abundancia)}
+\NormalTok{abundancia\_grafico }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{Sitio =} \FunctionTok{rownames}\NormalTok{(abundancia), }\AttributeTok{Abundancia =}\NormalTok{ abundancia\_total)}
+
+\CommentTok{\# Calcular la desviación estándar y error}
+\NormalTok{abundancia\_sd }\OtherTok{\textless{}{-}} \FunctionTok{apply}\NormalTok{(abundancia, }\DecValTok{1}\NormalTok{, sd)  }\CommentTok{\# Desviación estándar para cada sitio}
+\NormalTok{n }\OtherTok{\textless{}{-}} \FunctionTok{ncol}\NormalTok{(abundancia)  }\CommentTok{\# Número de especies}
+\NormalTok{error }\OtherTok{\textless{}{-}} \FunctionTok{qnorm}\NormalTok{(}\FloatTok{0.975}\NormalTok{) }\SpecialCharTok{*}\NormalTok{ (abundancia\_sd }\SpecialCharTok{/} \FunctionTok{sqrt}\NormalTok{(n))  }\CommentTok{\# Error estándar para el IC del 95\%}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(abundancia\_grafico, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Sitio, }\AttributeTok{y =}\NormalTok{ Abundancia)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"lightgreen"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_errorbar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{ymin =}\NormalTok{ Abundancia }\SpecialCharTok{{-}}\NormalTok{ error, }\AttributeTok{ymax =}\NormalTok{ Abundancia }\SpecialCharTok{+}\NormalTok{ error), }\AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }\AttributeTok{color =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Abundancia por sitio"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Abundancia"}\NormalTok{, }\AttributeTok{x =} \StringTok{"Sitios"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prueba_files/figure-latex/unnamed-chunk-18-1.pdf} \# 5.
+Análisis de la Diversidad Beta con vegan
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{beta\_diversidad }\OtherTok{\textless{}{-}} \FunctionTok{vegdist}\NormalTok{(abundancia)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{descomposiciuxf3n-de-la-beta-diversidad}{%
+\section{Descomposición de la Beta
+Diversidad}\label{descomposiciuxf3n-de-la-beta-diversidad}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{anidamiento\_recambio }\OtherTok{\textless{}{-}} \FunctionTok{betadisper}\NormalTok{(beta\_diversidad, }\AttributeTok{group =} \FunctionTok{rownames}\NormalTok{(abundancia))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(vegan)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{library}\NormalTok{(reshape2)}
+
+\NormalTok{abundancia }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{,}
+                       \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{3}\NormalTok{,}
+                       \DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{1}\NormalTok{,}
+                       \DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+                     \AttributeTok{nrow =} \DecValTok{4}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Sitio"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Bigote"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{)}
+
+\CommentTok{\# Convertir la matriz de abundancia a presencia/ausencia}
+\NormalTok{presencia\_ausencia }\OtherTok{\textless{}{-}} \FunctionTok{ifelse}\NormalTok{(abundancia }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)}
+
+\CommentTok{\# Calcular la diversidad beta usando la distancia de Jaccard}
+\NormalTok{beta\_diversidad }\OtherTok{\textless{}{-}} \FunctionTok{vegdist}\NormalTok{(presencia\_ausencia, }\AttributeTok{method =} \StringTok{"jaccard"}\NormalTok{)}
+
+\CommentTok{\# Convertir a data frame}
+\NormalTok{beta\_df }\OtherTok{\textless{}{-}} \FunctionTok{as.data.frame}\NormalTok{(}\FunctionTok{as.matrix}\NormalTok{(beta\_diversidad))}
+
+\CommentTok{\# Agregar los nombres de los sitios como columnas}
+\NormalTok{beta\_df}\SpecialCharTok{$}\NormalTok{Sitio1 }\OtherTok{\textless{}{-}} \FunctionTok{rownames}\NormalTok{(beta\_df)}
+
+\CommentTok{\# Transformar a formato largo}
+\NormalTok{beta\_long }\OtherTok{\textless{}{-}} \FunctionTok{melt}\NormalTok{(beta\_df, }\AttributeTok{id.vars =} \StringTok{"Sitio1"}\NormalTok{, }\AttributeTok{variable.name =} \StringTok{"Sitio2"}\NormalTok{, }\AttributeTok{value.name =} \StringTok{"Diversidad\_Beta"}\NormalTok{)}
+
+\CommentTok{\# Filtrar para evitar comparaciones consigo mismo}
+\NormalTok{beta\_long }\OtherTok{\textless{}{-}}\NormalTok{ beta\_long[beta\_long}\SpecialCharTok{$}\NormalTok{Sitio1 }\SpecialCharTok{!=}\NormalTok{ beta\_long}\SpecialCharTok{$}\NormalTok{Sitio2, ]}
+
+\CommentTok{\# Graficar el boxplot de la diversidad beta}
+\FunctionTok{ggplot}\NormalTok{(beta\_long, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Sitio1, }\AttributeTok{y =}\NormalTok{ Diversidad\_Beta)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_boxplot}\NormalTok{(}\AttributeTok{fill =} \StringTok{"skyblue"}\NormalTok{, }\AttributeTok{outlier.color =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun =}\NormalTok{ mean, }\AttributeTok{geom =} \StringTok{"point"}\NormalTok{, }\AttributeTok{shape =} \DecValTok{18}\NormalTok{, }\AttributeTok{size =} \DecValTok{4}\NormalTok{, }\AttributeTok{color =} \StringTok{"darkblue"}\NormalTok{, }
+               \AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(}\FloatTok{0.75}\NormalTok{)) }\SpecialCharTok{+}  \CommentTok{\# Promedio}
+  \FunctionTok{stat\_summary}\NormalTok{(}\AttributeTok{fun.data =}\NormalTok{ mean\_cl\_normal, }\AttributeTok{geom =} \StringTok{"errorbar"}\NormalTok{, }\AttributeTok{width =} \FloatTok{0.2}\NormalTok{, }
+               \AttributeTok{color =} \StringTok{"darkblue"}\NormalTok{, }\AttributeTok{position =} \FunctionTok{position\_dodge}\NormalTok{(}\FloatTok{0.75}\NormalTok{)) }\SpecialCharTok{+}  \CommentTok{\# Intervalos de confianza}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Boxplot de Diversidad Beta"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Sitios"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Diversidad Beta (Jaccard)"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{45}\NormalTok{, }\AttributeTok{hjust =} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prueba_files/figure-latex/unnamed-chunk-21-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{data }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }
+                 \DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }
+                 \DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }
+                 \DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }
+               \AttributeTok{nrow =} \DecValTok{4}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Calcular los componentes de beta diversidad}
+\NormalTok{beta }\OtherTok{\textless{}{-}} \FunctionTok{beta.pair}\NormalTok{(data, }\AttributeTok{index.family =} \StringTok{"jaccard"}\NormalTok{)}
+
+\CommentTok{\# Resultados}
+\NormalTok{beta.sim }\OtherTok{\textless{}{-}}\NormalTok{ beta}\SpecialCharTok{$}\NormalTok{beta.sim  }\CommentTok{\# Reemplazo de especies}
+\NormalTok{beta.sne }\OtherTok{\textless{}{-}}\NormalTok{ beta}\SpecialCharTok{$}\NormalTok{beta.sne  }\CommentTok{\# Diferencia en riqueza de especies}
+\NormalTok{beta.sor }\OtherTok{\textless{}{-}}\NormalTok{ beta}\SpecialCharTok{$}\NormalTok{beta.sor  }\CommentTok{\# Diversidad beta total}
+
+\CommentTok{\# Crear un dataframe con los resultados de beta diversidad}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}
+  \AttributeTok{Grupo =} \FunctionTok{c}\NormalTok{(}\StringTok{"anfibios"}\NormalTok{, }\StringTok{"reptiles"}\NormalTok{, }\StringTok{"mamíferos"}\NormalTok{, }\StringTok{"aves"}\NormalTok{),}
+  \AttributeTok{Reemplazo =} \FunctionTok{c}\NormalTok{(}\FloatTok{0.7}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.6}\NormalTok{, }\FloatTok{0.2}\NormalTok{), }\CommentTok{\# Valores simulados, reemplázalos con tus datos}
+  \AttributeTok{Riqueza =} \FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.3}\NormalTok{)          }\CommentTok{\# Valores simulados, reemplázalos con tus datos}
+\NormalTok{)}
+
+\CommentTok{\# Instala ggplot2 si no lo tienes}
+\ControlFlowTok{if}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{require}\NormalTok{(ggplot2)) }\FunctionTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+
+\CommentTok{\# Cargar ggplot2}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\CommentTok{\# Crear la gráfica}
+\FunctionTok{ggplot}\NormalTok{(df, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ Grupo)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Reemplazo }\SpecialCharTok{+}\NormalTok{ Riqueza, }\AttributeTok{fill =} \StringTok{"Anidamiento"}\NormalTok{), }\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ Reemplazo, }\AttributeTok{fill =} \StringTok{"Reemplazo"}\NormalTok{), }\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_manual}\NormalTok{(}\AttributeTok{name =} \StringTok{"Componentes"}\NormalTok{, }\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"Reemplazo"} \OtherTok{=} \StringTok{"gray"}\NormalTok{, }\StringTok{"Anidamiento"} \OtherTok{=} \StringTok{"purple"}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{y =} \StringTok{"Diferencias en composición de especies"}\NormalTok{, }\AttributeTok{x =} \StringTok{""}\NormalTok{, }
+       \AttributeTok{title =} \StringTok{"Diferencias en composición de especies por grupo o gremio"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prueba_files/figure-latex/unnamed-chunk-22-1.pdf}
+
+\hypertarget{anuxe1lisis-de-la-diversidad-beta-nmds}{%
+\section{Análisis de la Diversidad Beta
+NMDS}\label{anuxe1lisis-de-la-diversidad-beta-nmds}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{abundancia }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{), }
+                     \AttributeTok{nrow =} \DecValTok{4}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Sitio1"}\NormalTok{, }\StringTok{"Sitio2"}\NormalTok{, }\StringTok{"Sitio3"}\NormalTok{, }\StringTok{"Sitio4"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Graficar el NMDS con los puntos adicionales}
+\FunctionTok{ggplot}\NormalTok{(nmds\_plot, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ MDS1, }\AttributeTok{y =}\NormalTok{ MDS2, }\AttributeTok{shape =}\NormalTok{ Mes, }\AttributeTok{color =}\NormalTok{ Hora)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{4}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{stat\_ellipse}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{group =}\NormalTok{ Mes), }\AttributeTok{linetype =} \StringTok{"dotted"}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Elipses por grupo (Mes)}
+  \FunctionTok{scale\_shape\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\DecValTok{21}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{23}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DecValTok{25}\NormalTok{)) }\SpecialCharTok{+}  \CommentTok{\# Diferentes formas para los meses}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{, }\StringTok{"gray"}\NormalTok{, }\StringTok{"blue"}\NormalTok{, }\StringTok{"red"}\NormalTok{)) }\SpecialCharTok{+}  \CommentTok{\# Colores para las horas}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Escalado Multidimensional No{-}Métrico (NMDS)"}\NormalTok{, }
+       \AttributeTok{x =} \StringTok{"Dimensión 1"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Dimensión 2"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"right"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prueba_files/figure-latex/unnamed-chunk-25-1.pdf}
+
+\hypertarget{gruxe1fica-de-pca-con-ejes-y-vectores}{%
+\section{Gráfica de PCA con ejes y
+vectores}\label{gruxe1fica-de-pca-con-ejes-y-vectores}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Análisis de Coordenadas Principales (PCA)}
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{123}\NormalTok{)}
+\NormalTok{abundancia }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{sample}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{20}\NormalTok{, }\DecValTok{30} \SpecialCharTok{*} \DecValTok{5}\NormalTok{, }\AttributeTok{replace =} \ConstantTok{TRUE}\NormalTok{), }\AttributeTok{ncol =} \DecValTok{5}\NormalTok{)}
+\FunctionTok{rownames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Sitio"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{30}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(abundancia) }\OtherTok{\textless{}{-}} \FunctionTok{paste}\NormalTok{(}\StringTok{"Especie"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\AttributeTok{sep =} \StringTok{""}\NormalTok{)}
+
+\CommentTok{\# Añadir una variable para los grupos}
+\NormalTok{grupos }\OtherTok{\textless{}{-}} \FunctionTok{factor}\NormalTok{(}\FunctionTok{rep}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\StringTok{"Cardonal"}\NormalTok{, }\StringTok{"Espinar"}\NormalTok{, }\StringTok{"Matorral desértico"}\NormalTok{), }\AttributeTok{each =} \DecValTok{10}\NormalTok{))}
+
+\CommentTok{\# Cálculo de disimilitud Bray{-}Curtis y el PCA (o escalado multidimensional)}
+\NormalTok{disimilitud }\OtherTok{\textless{}{-}} \FunctionTok{vegdist}\NormalTok{(abundancia, }\AttributeTok{method =} \StringTok{"bray"}\NormalTok{)}
+\NormalTok{pca\_resultados }\OtherTok{\textless{}{-}} \FunctionTok{cmdscale}\NormalTok{(disimilitud, }\AttributeTok{eig =} \ConstantTok{TRUE}\NormalTok{)}
+
+\CommentTok{\# Convertir los resultados en un data frame}
+\NormalTok{pca\_points }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(pca\_resultados}\SpecialCharTok{$}\NormalTok{points)}
+\FunctionTok{colnames}\NormalTok{(pca\_points) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"PC1"}\NormalTok{, }\StringTok{"PC2"}\NormalTok{)}
+\NormalTok{pca\_points}\SpecialCharTok{$}\NormalTok{Sitio }\OtherTok{\textless{}{-}} \FunctionTok{rownames}\NormalTok{(abundancia)}
+\NormalTok{pca\_points}\SpecialCharTok{$}\NormalTok{Grupo }\OtherTok{\textless{}{-}}\NormalTok{ grupos}
+
+\CommentTok{\# Calcular los centroides para cada grupo}
+\NormalTok{centroides }\OtherTok{\textless{}{-}} \FunctionTok{aggregate}\NormalTok{(}\FunctionTok{cbind}\NormalTok{(PC1, PC2) }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Grupo, }\AttributeTok{data =}\NormalTok{ pca\_points, }\AttributeTok{FUN =}\NormalTok{ mean)}
+
+\CommentTok{\# Combinar los puntos con los centroides}
+\NormalTok{pca\_combined }\OtherTok{\textless{}{-}} \FunctionTok{merge}\NormalTok{(pca\_points, centroides, }\AttributeTok{by =} \StringTok{"Grupo"}\NormalTok{, }\AttributeTok{suffixes =} \FunctionTok{c}\NormalTok{(}\StringTok{""}\NormalTok{, }\StringTok{"\_centroide"}\NormalTok{))}
+
+\CommentTok{\# Graficar el PCA con puntos, centroides y elipses}
+\FunctionTok{ggplot}\NormalTok{(pca\_combined, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ PC1, }\AttributeTok{y =}\NormalTok{ PC2, }\AttributeTok{color =}\NormalTok{ Grupo, }\AttributeTok{shape =}\NormalTok{ Grupo)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Puntos por grupo}
+  \FunctionTok{geom\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ PC1\_centroide, }\AttributeTok{y =}\NormalTok{ PC2\_centroide), }\AttributeTok{shape =} \DecValTok{4}\NormalTok{, }\AttributeTok{size =} \DecValTok{4}\NormalTok{, }\AttributeTok{color =} \StringTok{"red"}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Centroides}
+  \FunctionTok{geom\_segment}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xend =}\NormalTok{ PC1\_centroide, }\AttributeTok{yend =}\NormalTok{ PC2\_centroide), }\AttributeTok{linetype =} \StringTok{"dotted"}\NormalTok{, }\AttributeTok{color =} \StringTok{"black"}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Líneas a \# \# centroides}
+  \FunctionTok{stat\_ellipse}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{group =}\NormalTok{ Grupo), }\AttributeTok{linetype =} \StringTok{"dashed"}\NormalTok{) }\SpecialCharTok{+}  \CommentTok{\# Elipses por grupo}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Análisis de Coordenadas Principales (PCA) con Grupos"}\NormalTok{, }
+       \AttributeTok{x =} \StringTok{"Eje 1"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Eje 2"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"right"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{prueba_files/figure-latex/unnamed-chunk-26-1.pdf}
+
+\end{document}
