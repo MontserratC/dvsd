@@ -104,7 +104,9 @@ rare_df <- data.frame(
 ```{r , include=TRUE, warning=FALSE, echo=FALSE}
 rarecurve(abn3, sample = raremax, col = "purple", cex = 0.6, add = TRUE)
 ```
-# **Analisis de diversidad Beta**
+![Rarefacción](https://github.com/MontserratC/dvsd/blob/961db283636e795b6931edd3109cc57eeb37b1af/rarefaccion.jpeg)
+
+# Analisis de diversidad Beta
 ## matrix de abundancia
 ```{r , include=TRUE, warning=FALSE}
 abundancia <- matrix(c(0, 1, 0, 3, 0, 0,
@@ -164,7 +166,7 @@ plot(density(dist.s$beta.SOR), xlim = c(0, 0.8), ylim = c(0, 19),
 lines(density(dist.s$beta.SNE), lty = 1, lwd = 2)
 lines(density(dist.s$beta.SIM), lty = 2, lwd = 2)
 ```
-
+![Diversidad beta](https://github.com/MontserratC/dvsd/blob/961db283636e795b6931edd3109cc57eeb37b1af/div%20b.jpeg)
 # Abundancia por sitio comparacion simple analisis exploratorio
 
 ```{r , include=TRUE, warning=FALSE, echo=TRUE}
@@ -194,7 +196,7 @@ ggplot(abundancia_grafico, aes(x = Sitio, y = Abundancia)) +
   labs(title = "Abundancia por sitio", y = "Abundancia", x = "Sitios") +
   theme_minimal()
 ```
-
+![Abundancia por sitio](https://github.com/MontserratC/dvsd/blob/7920796a85c2cc656a9dd7afbd5319a4122ebd92/abundancia%20por%20sitio.jpeg)
 # Curva Rango-abundancia
 ```{r , include=TRUE, warning=FALSE, echo=TRUE}
 abundancia <- matrix(sample(1:50, 30 * 5, replace = TRUE), ncol = 5)
@@ -222,6 +224,7 @@ ggplot(rango_abundancia, aes(x = Rango, y = Abundancia)) +
   labs(title = "Curva de Rango-Abundancia", x = "Rango de Especies", y = "Abundancia") +
   theme_minimal()
 ```
+![Curva Rango abundancia](https://github.com/MontserratC/dvsd/blob/825b8e39c5ace7b346f4a1b65adde70c7af7ffa9/Rplot.jpeg)
 
  Análisis de la Diversidad Beta con vegan
 ```{r , include=TRUE, warning=FALSE, echo=TRUE}
@@ -276,6 +279,7 @@ ggplot(beta_long, aes(x = Sitio1, y = Diversidad_Beta)) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
+![Boxplot](https://github.com/MontserratC/dvsd/blob/825b8e39c5ace7b346f4a1b65adde70c7af7ffa9/boxplot.jpeg)
 
 ```{r , include=TRUE, warning=FALSE, echo=TRUE}
 data <- matrix(c(1, 0, 1, 0, 
@@ -314,6 +318,7 @@ ggplot(df, aes(x = Grupo)) +
        title = "Diferencias en composición de especies por grupo o gremio") +
   theme_minimal()
 ```
+![Diferencias](https://github.com/MontserratC/dvsd/blob/2f97a5b6f7d7f34577555e2727fbeda301a0b61f/diferencias%20composicion.jpeg)
 
 # Análisis de la Diversidad Beta NMDS
 ```{r , include=TRUE, warning=FALSE, echo=TRUE}
@@ -367,7 +372,7 @@ ggplot(nmds_plot, aes(x = MDS1, y = MDS2, shape = Mes, color = Hora)) +
   theme(legend.position = "right")
 
 ```
-
+![NMDS](https://github.com/MontserratC/dvsd/blob/1cc99ce8967f5664fb1e3f661a1325221c0f6734/Escalado.jpeg)
 
 # Gráfica de PCA con ejes y vectores
 
@@ -409,5 +414,5 @@ ggplot(pca_combined, aes(x = PC1, y = PC2, color = Grupo, shape = Grupo)) +
   theme(legend.position = "right")
 ```
 
-![coordenadasPCA](https://github.com/MontserratC/dvsd/blob/440e5dffa0e2f3d77c01e40e5c4737b8496fedbb/coordenadasPCA.jpeg)
-coordenadasPCA.jpeg
+![PCA](https://github.com/MontserratC/dvsd/blob/440e5dffa0e2f3d77c01e40e5c4737b8496fedbb/coordenadasPCA.jpeg)
+
