@@ -326,8 +326,6 @@ ggplot(nmds_plot, aes(x = MDS1, y = MDS2, shape = Mes, color = Hora)) +
   theme_minimal() +
   theme(legend.position = "right")
 
-```
-
 
 # Gráfica de PCA con ejes y vectores
 
@@ -368,4 +366,29 @@ ggplot(pca_combined, aes(x = PC1, y = PC2, color = Grupo, shape = Grupo)) +
   theme_minimal() +
   theme(legend.position = "right")
 
+############grafico rango abundancia#######################
+set.seed(123)
+abundancia <- matrix(sample(1:50, 30 * 5, replace = TRUE), ncol = 5)
+rownames(abundancia) <- paste("Sitio", 1:30, sep = "")
+colnames(abundancia) <- paste("Especie", 1:5, sep = "")
 
+# Calcular el total de abundancia por especie (suma de filas)
+abundancia_total <- colSums(abundancia)
+
+# Ordenar las especies por su abundancia de mayor a menor
+abundancia_ordenada <- sort(abundancia_total, decreasing = TRUE)
+
+# Crear un data frame para el gráfico de rango-abundancia
+rango_abundancia <- data.frame(
+  Rango = seq_along(abundancia_ordenada),
+  Abundancia = abundancia_ordenada,
+  Especie = names(abundancia_ordenada)
+)
+
+# Graficar rango-abundancia usando ggplot2
+ggplot(rango_abundancia, aes(x = Rango, y = Abundancia)) +
+  geom_line(size = 1, color = "blue") +
+  geom_point(size = 3, color = "red") +
+  geom_text(aes(label = Especie), vjust = -0.5, size = 3, angle = 45) +  # Etiquetas de especies
+  labs(title = "Curva de Rango-Abundancia", x = "Rango de Especies", y = "Abundancia") +
+  theme_minimal()
