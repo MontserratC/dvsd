@@ -3,7 +3,6 @@ clase de diversidad
 ---
 title: "Análisis de Diversidad de Especies por Montserrat Cervantes Espinoza" 
 "Montserrat Cervantes Espinoza"
-output: html_document
 date: "2024-09-22"
 ---
 # Instalar y cargar los paquetes necesarios
