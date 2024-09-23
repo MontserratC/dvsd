@@ -1,7 +1,7 @@
 # dvsd
 clase de diversidad
 ---
-title: "Análisis de Diversidad de Especies por Montserrat Cervantes Espinoza" 
+"Análisis de Diversidad de Especies por Montserrat Cervantes Espinoza" 
 "Montserrat Cervantes Espinoza"
 date: "2024-09-22"
 ---
