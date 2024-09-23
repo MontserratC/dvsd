@@ -408,4 +408,6 @@ ggplot(pca_combined, aes(x = PC1, y = PC2, color = Grupo, shape = Grupo)) +
   theme_minimal() +
   theme(legend.position = "right")
 ```
+<span>coordenadasPCA.jpeg</span><span>)</span>
 
+coordenadasPCA.jpeg
