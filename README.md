@@ -1,6 +1,8 @@
 ---
-title: "Análisis de Diversidad de Especies por Montserrat Cervantes Espinoza" 
-output: html_document
+title: "Análisis de Diversidad de Especies por Montserrat Cervantes Espinoza"
+output:
+  html_document: default
+  pdf_document: default
 date: "2024-09-22"
 ---
 # Instalar y cargar los paquetes necesarios
@@ -192,7 +194,36 @@ ggplot(abundancia_grafico, aes(x = Sitio, y = Abundancia)) +
   labs(title = "Abundancia por sitio", y = "Abundancia", x = "Sitios") +
   theme_minimal()
 ```
-# 5. Análisis de la Diversidad Beta con vegan
+
+# Curva Rango-abundancia
+```{r , include=TRUE, warning=FALSE, echo=TRUE}
+abundancia <- matrix(sample(1:50, 30 * 5, replace = TRUE), ncol = 5)
+rownames(abundancia) <- paste("Sitio", 1:30, sep = "")
+colnames(abundancia) <- paste("Especie", 1:5, sep = "")
+
+# Calcular el total de abundancia por especie (suma de filas)
+abundancia_total <- colSums(abundancia)
+
+# Ordenar las especies por su abundancia de mayor a menor
+abundancia_ordenada <- sort(abundancia_total, decreasing = TRUE)
+
+# Crear un data frame para el gráfico de rango-abundancia
+rango_abundancia <- data.frame(
+  Rango = seq_along(abundancia_ordenada),
+  Abundancia = abundancia_ordenada,
+  Especie = names(abundancia_ordenada)
+)
+
+# Graficar rango-abundancia usando ggplot2
+ggplot(rango_abundancia, aes(x = Rango, y = Abundancia)) +
+  geom_line(size = 1, color = "blue") +
+  geom_point(size = 3, color = "red") +
+  geom_text(aes(label = Especie), vjust = -0.5, size = 3, angle = 45) +  # Etiquetas de especies
+  labs(title = "Curva de Rango-Abundancia", x = "Rango de Especies", y = "Abundancia") +
+  theme_minimal()
+```
+
+ Análisis de la Diversidad Beta con vegan
 ```{r , include=TRUE, warning=FALSE, echo=TRUE}
 beta_diversidad <- vegdist(abundancia)
 ```
