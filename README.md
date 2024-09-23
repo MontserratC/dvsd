@@ -7,10 +7,12 @@ date: "2024-09-22"
 ---
 # Instalar y cargar los paquetes necesarios
 ```{r setup, include=TRUE, warning=FALSE}
-
+#install.packages("BiodiversityR")
+#install.packages("vegan")
 library(vegan)
 library(betapart)
 library(ggplot2)
+library(BiodiversityR)
 ```
 ## Establecer una semilla para reproducibilidad
 ```{r, include=TRUE, warning=FALSE}
